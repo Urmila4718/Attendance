@@ -1,0 +1,47 @@
+<app-dashboard></app-dashboard>
+<p class="text-center fs-3" [ngClass]="isleaveApplied? 'text-success pb-1' : 'text-danger pb-1'">
+    {{displayMsg}}
+</p>
+<form  [formGroup]="leaveForm" (ngSubmit)="isleaveSubmitted()" class="border p-3 rounded-3">
+    <div class="row">
+        <div class="col text-center p-2 mb-3 bg-light">
+           <span class="fs-3">Apply Leave</span>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col mb-3">
+            <label for="reason" class="form-label">Reason</label>
+            <input type="text" id="reason" class="form-control"
+            formControlName="reason">
+        </div>
+       </div>
+       <div class="row">
+        <div class="col mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" id="date" class="form-control"
+            formControlName="date">
+         
+        </div>
+       </div>
+       <div class="row">
+        <div class="col mb-3">
+            <label for="type" class="form-label">Select a Type</label><br>
+            <select formControlName="type" style="width:100%;height: 34px;border: 2px inset;" name="type" id="type" value="Select a Type">
+                <option value="firsthalf">First Half</option>
+                <option value="seconfhalf">Second Half</option>
+                <option value="fullday">Full day</option>
+        
+            </select >
+        </div>
+       </div>
+       <div class="row">
+        <div class="col-6 offset-3">
+            <div class="d-grid">
+                <button type="submit" [disabled]="leaveForm.invalid" class="btn btn-primary">Apply<i class="far fa-house-leave"></i></button>
+            </div>
+        </div>
+    </div>
+
+       
+    
+</form>
